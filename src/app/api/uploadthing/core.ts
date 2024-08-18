@@ -31,6 +31,7 @@ export const ourFileRouter = {
         name: file.name,
         url: file.url,
         userId: metadata.userId,
+        key: file.key,
       });
 
       return { uploadedBy: metadata.userId };
