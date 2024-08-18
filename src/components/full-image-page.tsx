@@ -2,6 +2,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { deleteImage, getImage } from "~/server/queries";
 import { Button } from "./ui/button";
 import { utapi } from "~/server/uploadthing";
+import { DownloadButton } from "./download";
 
 export default async function FullImageView(props: { photoId: string }) {
   const idAsNumber = Number(props.photoId);
@@ -42,15 +43,7 @@ export default async function FullImageView(props: { photoId: string }) {
             </Button>
           </form>
         </div>
-
-        <a
-          href={image.url}
-          download={image.name}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Button>Download</Button>
-        </a>
+        <DownloadButton name={image.name} url={image.url} />
       </div>
     </div>
   );
