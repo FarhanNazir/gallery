@@ -3,6 +3,7 @@ import { deleteImage, getImage } from "~/server/queries";
 import { Button } from "./ui/button";
 import { utapi } from "~/server/uploadthing";
 import { DownloadButton } from "./download";
+import { ShareButton } from "./share-button";
 
 export default async function FullImageView(props: { photoId: string }) {
   const idAsNumber = Number(props.photoId);
@@ -44,6 +45,7 @@ export default async function FullImageView(props: { photoId: string }) {
           </form>
         </div>
         <DownloadButton name={image.name} url={image.url} />
+        <ShareButton pictureUrl={image.url} />
       </div>
     </div>
   );
